@@ -1,5 +1,6 @@
 println("Hello World!");
-if(){
+if(true){
+	println("Hello my Live")
 }
 else{
 	println("Hello my Love")
