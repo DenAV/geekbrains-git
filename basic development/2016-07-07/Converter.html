@@ -1,0 +1,9 @@
+﻿<meta charset="utf-8">
+<script>
+	var dollar = 64; //курс доллара
+	var euro = 70; // курс евро
+	var rub = prompt("Введите сумму в рублях:");
+	var d = parseFloat(rub/dollar).toFixed(2); // toFixed(2) - задаем 2 знака после запятой
+	var e = parseFloat(rub/euro).toFixed(2);
+	alert("Сумма в Долларах: " +d+";\n"+"Сумма в Евро: "+e+";");
+</script>
