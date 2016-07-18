@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Личный сайт студента GeekBrains</title>
+	<link rel="stylesheet" href="style.css">
+	<script async src="/js/puzzle.js"></script>
+	<script type="text/javascript">
+		
+		function Play()
+		{	
+		//----------------------------------------------------------------------------------------
+			// функция выводит случайное значение в заданных диопазонах
+			function getRandom(min, max){
+				return parseInt(Math.random()*(max-min)+min);
+			}
+			// функция проверки правильного ответа
+			function Inspection(version){
+				if (version==number) {
+					alert("Вы отгадали загаданное число! Было загадано число: "+number+"\nПоздравляем!");
+					return true;
+				}else if(version<number){
+					alert("Ваш вариант меньше загаданного. Попробуйте еще раз.");
+				}else
+				alert("Ваш вариант бальше загаданного. В следующий раз повезет.");
+			}
+
+			var number = getRandom(0,100);
+			var countAnswer = 0;
+			//alert(number);
+			var user = document.getElementById("userPlayer").value;
+			
+			alert("Компьютер загадал число от 0 до 100(не включая 100). \nПопробуйте его отгадать, если решите сдаться введите -1.");
+			while(true){
+				var ans = +prompt("Ваш ход Игрок: " + user);
+				// проверяем чтобы не пустая строка и введено число
+				if(ans!='' && !isNaN(ans)){
+					if (ans== -1){
+						alert("Спасибо за игру!");
+						break;
+					}
+					else{
+						countAnswer++;
+						//вызов функции проверки ответа
+						if(Inspection(ans)==true){
+							alert("Ваш результат: "+countAnswer+" попыток.");
+							break;
+						}				
+					}				
+				}
+				else{
+					alert("Вы ввели не верное значение.\nВведите число от 0 до 100");
+				}
+			}//end while
+
+		//----------------------------------------------------------------------------------------
+		}
+
+	</script>
+</head>
+<body>
+	<div id="header">
+		<a href="index.html">Главная</a><span>/</span>
+		<a href="puzzle.html">Загадки</a><span>/</span>
+		<a href="#">Угадайка</a><span>/</span>
+		<a href="guess-2.html">Угадайка мультиплеер</a><span>/</span>
+	</div>
+<div id="content">
+	<h1>Личный сайт студента GeekBrains</h1>
+    <div id="center">	
+		<h3>Угадайка</h3>			
+	    <div id="box">
+	    	<p>Играет 1 игрок. У вас будет неограниченное количество попыток, чтобы угадать загадку.</p>
+	    	<p>Введите свое имя</p>
+	    	<input type="text" id="userPlayer">
+            <br><br/>
+            <a href="#" onclick="Play();">Начать игру</a>
+	    </div>
+</div>
+
+<div id="footer">
+	Copyright © 2016 <a href="https://geekbrains.ru/"> GeekBrains </a>
+</div>
+
+</body>
+</html>
